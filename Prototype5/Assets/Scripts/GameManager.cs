@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public List<GameObject> targets;
+    public TextMeshProUGUI scoreText;
+    private int score;
     private float spawnRate = 1.0f;
     void Start()
     {
         StartCoroutine(SpawnTarget());
+        score = 0;
+        scoreText.text = "Score: " + score;
 
     }
 
