@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float spawnRate = 1.0f;
     public TextMeshProUGUI gameOverText;
     public bool isGameActive;
+    public Button restartButton;
     void Start()
     {
         isGameActive = true;
@@ -28,8 +30,14 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void GameOver()
     {
+        restartButton.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(true);
         isGameActive = false;
 
