@@ -15,13 +15,20 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public bool isGameActive;
     public Button restartButton;
+    public GameObject titleScreen;
     void Start()
+    {
+
+        
+    }
+    public void StartGame()
     {
         isGameActive = true;
         StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
-        
+        titleScreen.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
