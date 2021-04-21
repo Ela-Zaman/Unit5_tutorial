@@ -21,10 +21,11 @@ public class GameManager : MonoBehaviour
 
         
     }
-    public void StartGame()
+    public void StartGame(int difficulty)
     {
         isGameActive = true;
         StartCoroutine(SpawnTarget());
+        spawnRate /= difficulty;
         score = 0;
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
